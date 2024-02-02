@@ -1,9 +1,9 @@
 //This will check the search time for an application. Target site used: appreviewbot.com and next.appreviewbot.com
 
-import puppeteer from 'puppeteer'
-import sleep from "../utils/sleep.js"
+const puppeteer = require('puppeteer')
+const sleep = require("../utils/sleep");
 
-(async () => {
+const searchTime = (async () => {
 
     const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
 
@@ -61,6 +61,8 @@ import sleep from "../utils/sleep.js"
 
     await sleep(5000)
     await browser.close()
-})()
+})
+
+module.exports = searchTime
 
 

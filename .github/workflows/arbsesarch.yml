@@ -3,33 +3,29 @@ name: Automation Tests
 on:
   push:
     branches:
-      - dev   
+      - dev
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 20
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20  
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm start
+      - name: Run tests with Jest
+        run: npm test -- --coverage  # Add --coverage to generate test coverage report
 
-    - name: Generate Test Report
-      run: npm run test
-    
-    - name: Upload Test Reports
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-reports
-        path: tests/reports
-    
+      - name: Upload Jest Test Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-test-reports
+          path: coverage  # Specify the path where Jest stores coverage reports
