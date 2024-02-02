@@ -23,3 +23,10 @@ jobs:
 
     - name: Run tests
       run: npm start
+    
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-reports
+        path: puppeteer-githubActions/report
+    
