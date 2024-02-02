@@ -1,0 +1,8 @@
+{"type": "module",
+  "dependencies": {
+    "puppeteer": "^21.10.0"
+  },
+  "scripts": {
+    "start": "node src/arbSearch.js"
+  }
+}
