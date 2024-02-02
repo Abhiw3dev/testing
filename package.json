@@ -1,8 +1,14 @@
-{"type": "module",
-  "dependencies": {
-    "puppeteer": "^21.10.0"
-  },
-  "scripts": {
-    "start": "node src/arbSearch.js"
+{"type":"module",
+"dependencies":{
+  "jest":"^29.7.0",
+  "puppeteer":"^21.10.0"},
+  "scripts":{
+    "start":"node test/arbSearch.js",
+    "test": "jest --coverage"
+    },
+    "jest": {
+      "collectCoverage": true,
+      "coverageReporters": ["html", "text"]
+    }
   }
-}
+  
