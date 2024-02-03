@@ -22,19 +22,37 @@ jobs:
         run: npm install
 
       - name: Run tests with Jest
-        run: npm test --coverage  # Add --coverage to generate test coverage report
+        run: |
+              npm test --coverage  # Add --coverage to generate test coverage report
+              npm run generate-html-report
 
       - name: Upload Jest Test Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4.3.0
         if: always()
         with:
           name: jest-test-reports
-          path: coverage  # Specify the path where Jest stores coverage reports
+          path: coverage/arbSearch.js.html  # Specify the path where Jest stores coverage reports
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.0
         with:
           name: new report
-          path: coverage
+          path: coverage/arbSearch.js.html
+
+      - name: Serve HTML Report
+        run: |
+            npm install -g http-server
+            http-server -p 8080 coverage/arbSearch.js.html  # Replace with the actual path
+
+      - name: Upload HTML Test Reports
+        uses: actions/upload-artifact@v4.3.0
+        with:
+              name: html-test-reports
+              path:   # Replace with the actual path to HTML report
+
+      - name: Print HTML Report URL
+        run: |
+          echo "View the HTML test report at: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/html-test-reports"
+  
 
       
