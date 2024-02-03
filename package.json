@@ -5,7 +5,8 @@
   },
   "scripts": {
     "start": "node test/arbSearch.js",
-    "test": "jest"
+    "test": "jest --coverage",
+    "generate-html-report": "jest-html-reporter"
   },
   "jest": {
     "testEnvironment": "node"
@@ -17,6 +18,7 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-html-reporter": "^3.10.2"
   }
 }
