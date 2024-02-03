@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -142,36 +142,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,9 +160,34 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -210,11 +210,11 @@ const searchTime = (async () =&gt; {
 &nbsp;
     const page = await browser.newPage();
 &nbsp;
-    console.log("Begin to test the appreviewbot.com");
+    // console.log("Begin to test the appreviewbot.com");
 &nbsp;
     await page.goto('https://appreviewbot.com/', { waitUntil: 'load' });
 &nbsp;
-    console.log("&gt; Reached target site");
+    // console.log("&gt; Reached target site");
 &nbsp;
     // await sleep(2000);
 &nbsp;
@@ -228,18 +228,18 @@ const searchTime = (async () =&gt; {
     const endTime = new Date(); // Record the end time
 &nbsp;
     const responseTime = endTime - startTime;
-    console.log(`&gt; Response time: ${responseTime / 1000 % 60} seconds`);
+    // console.log(`&gt; Response time: ${responseTime / 1000 % 60} seconds`);
 &nbsp;
-    console.log(`&gt; Test done for appreviewbot.com\n`);
+    // console.log(`&gt; Test done for appreviewbot.com\n`);
 &nbsp;
     // await sleep(5000)
 &nbsp;
     const page2 = await browser.newPage()
-    console.log("Begin to test the next.appreviewbot.com");
+    // console.log("Begin to test the next.appreviewbot.com");
 &nbsp;
     await page2.goto('https://next.appreviewbot.com/', { waitUntil: 'load' });
 &nbsp;
-    console.log("&gt; Reached target site");
+    // console.log("&gt; Reached target site");
 &nbsp;
     // await sleep(1000);
 &nbsp;
@@ -253,9 +253,9 @@ const searchTime = (async () =&gt; {
     const endTime1 = new Date(); // Record the end time
 &nbsp;
     const responseTime1 = endTime1 - startTime1;
-    console.log(`&gt; Response time: ${responseTime1 / 1000 % 60} seconds`);
-&nbsp;
-    console.log(`&gt; Test done for next.appreviewbot.com\n\n`);
+    // console.log(`&gt; Response time: ${responseTime1 / 1000 % 60} seconds`);
+     
+    // console.log(`&gt; Test done for next.appreviewbot.com`);
 &nbsp;
     const conclusion = (`-&gt; Response time by appreviewbot.com: ${responseTime / 1000 % 60} seconds\n -&gt; Response time by next.appreviewbot.com: ${responseTime1 / 1000 % 60} seconds`)
     console.log(`Conclusion:\n ${conclusion}`)
@@ -274,7 +274,7 @@ module.exports = searchTime
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-03T09:38:48.295Z
+                at 2024-02-03T10:14:13.963Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4.3.0
         with:
               name: html-test-reports
-              path:   # Replace with the actual path to HTML report
+              path: coverage  # Replace with the actual path to HTML report
 
       - name: Print HTML Report URL
         run: |
