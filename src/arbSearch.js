@@ -5,7 +5,7 @@ const sleep = require("../utils/sleep");
 
 const searchTime = (async () => {
 
-    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized'], defaultViewport: null });
 
     const page = await browser.newPage();
 
