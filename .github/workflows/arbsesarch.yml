@@ -31,18 +31,18 @@ jobs:
         if: always()
         with:
           name: jest-test-reports
-          path: coverage/arbSearch.js.html  # Specify the path where Jest stores coverage reports
+          path: coverage # Specify the path where Jest stores coverage reports
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.0
         with:
           name: new report
-          path: coverage/arbSearch.js.html
+          path: coverage
 
       - name: Serve HTML Report
         run: |
             npm install -g http-server
-            http-server -p 8080 coverage/arbSearch.js.html  # Replace with the actual path
+            http-server -p 8080 coverage # Replace with the actual path
 
       - name: Upload HTML Test Reports
         uses: actions/upload-artifact@v4.3.0
