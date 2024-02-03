@@ -5,7 +5,7 @@
   },
   "scripts": {
     "start": "node test/arbSearch.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "generate-html-report": "jest-html-reporter"
   },
   "jest": {
