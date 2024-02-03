@@ -30,3 +30,7 @@ jobs:
         with:
           name: jest-test-reports
           path: coverage  # Specify the path where Jest stores coverage reports
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.0
+      
