@@ -35,6 +35,6 @@ jobs:
         uses: actions/upload-artifact@v4.3.0
         with:
           name: new report
-          path: newReports
-          
+          path: coverage
+
       
