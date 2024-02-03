@@ -5,7 +5,7 @@ const sleep = require("../utils/sleep");
 
 const searchTime = (async () => {
 
-    const browser = await puppeteer.launch({ headless: 'new', args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
 
     const page = await browser.newPage();
 
@@ -15,7 +15,7 @@ const searchTime = (async () => {
 
     console.log("> Reached target site");
 
-    await sleep(2000);
+    // await sleep(2000);
 
     const startTime = new Date(); // Record the start time
 
@@ -31,7 +31,7 @@ const searchTime = (async () => {
 
     console.log(`> Test done for appreviewbot.com\n`);
 
-    await sleep(5000)
+    // await sleep(5000)
 
     const page2 = await browser.newPage()
     console.log("Begin to test the next.appreviewbot.com");
@@ -40,7 +40,7 @@ const searchTime = (async () => {
 
     console.log("> Reached target site");
 
-    await sleep(1000);
+    // await sleep(1000);
 
     const startTime1 = new Date(); // Record the start time
 
@@ -59,7 +59,7 @@ const searchTime = (async () => {
     const conclusion = (`-> Response time by appreviewbot.com: ${responseTime / 1000 % 60} seconds\n -> Response time by next.appreviewbot.com: ${responseTime1 / 1000 % 60} seconds`)
     console.log(`Conclusion:\n ${conclusion}`)
 
-    await sleep(5000)
+    // await sleep(5000)
     await browser.close()
 })
 
