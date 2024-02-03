@@ -3,7 +3,7 @@
 const puppeteer = require('puppeteer')
 const sleep = require("../utils/sleep");
 
-const searchTime = (async () => {
+const searchTimes = (async () => {
 
     const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized'], defaultViewport: null });
 
@@ -63,6 +63,6 @@ const searchTime = (async () => {
     await browser.close()
 })
 
-module.exports = searchTime
+module.exports = searchTimes
 
 

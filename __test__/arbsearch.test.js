@@ -1,4 +1,6 @@
-const searchTime = require('../src/arbSearch.js')
+ 
+
+const searchTime = require('searchTimes')
  
 describe('Search Time Measurement', () => {
   it('should measure search time for appreviewbot.com', () => {
