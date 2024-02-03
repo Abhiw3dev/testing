@@ -3,17 +3,17 @@
 const puppeteer = require('puppeteer')
 const sleep = require("../utils/sleep");
 
-const searchTimes = (async () => {
+const searchTime = (async () => {
 
     const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized'], defaultViewport: null });
 
     const page = await browser.newPage();
 
-    // console.log("Begin to test the appreviewbot.com");
+    console.log("Begin to test the appreviewbot.com");
 
     await page.goto('https://appreviewbot.com/', { waitUntil: 'load' });
 
-    // console.log("> Reached target site");
+    console.log("> Reached target site");
 
     // await sleep(2000);
 
@@ -27,18 +27,18 @@ const searchTimes = (async () => {
     const endTime = new Date(); // Record the end time
 
     const responseTime = endTime - startTime;
-    // console.log(`> Response time: ${responseTime / 1000 % 60} seconds`);
+    console.log(`> Response time: ${responseTime / 1000 % 60} seconds`);
 
-    // console.log(`> Test done for appreviewbot.com\n`);
+    console.log(`> Test done for appreviewbot.com\n`);
 
     // await sleep(5000)
 
     const page2 = await browser.newPage()
-    // console.log("Begin to test the next.appreviewbot.com");
+    console.log("Begin to test the next.appreviewbot.com");
 
     await page2.goto('https://next.appreviewbot.com/', { waitUntil: 'load' });
 
-    // console.log("> Reached target site");
+    console.log("> Reached target site");
 
     // await sleep(1000);
 
@@ -52,9 +52,9 @@ const searchTimes = (async () => {
     const endTime1 = new Date(); // Record the end time
 
     const responseTime1 = endTime1 - startTime1;
-    // console.log(`> Response time: ${responseTime1 / 1000 % 60} seconds`);
-     
-    // console.log(`> Test done for next.appreviewbot.com`);
+    console.log(`> Response time: ${responseTime1 / 1000 % 60} seconds`);
+
+    console.log(`> Test done for next.appreviewbot.com\n\n`);
 
     const conclusion = (`-> Response time by appreviewbot.com: ${responseTime / 1000 % 60} seconds\n -> Response time by next.appreviewbot.com: ${responseTime1 / 1000 % 60} seconds`)
     console.log(`Conclusion:\n ${conclusion}`)
@@ -63,6 +63,4 @@ const searchTimes = (async () => {
     await browser.close()
 })
 
-module.exports = searchTimes
-
-
+module.exports = searchTime

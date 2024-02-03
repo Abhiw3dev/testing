@@ -19,18 +19,22 @@ jobs:
           node-version: 20  
 
       - name: Install dependencies
-        run:  npm install
+        run: npm install
 
       - name: Run tests with Jest
-        run: |
-              npm test --coverage  # Add --coverage to generate test coverage report
-              npm run generate-html-report
+        run: npm test -- --coverage  # Add --coverage to generate test coverage report
 
       - name: Upload Jest Test Reports
-        uses: actions/upload-artifact@v4.3.0
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: jest-test-reports
-          path: coverage # Specify the path where Jest stores coverage reports
+          path: coverage  # Specify the path where Jest stores coverage reports
 
-  
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.0
+        with:
+          name: new report
+          path: newReports
+          
+      
