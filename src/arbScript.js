@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
 
-async function searchTime(url, searchTerm, response_Time) {
+async function searchTime(url, searchTerm) {
     
-    const browser = await puppeteer.launch({ headless: false,args: ['--start-maximized'], defaultViewport: null  });
+    const browser = await puppeteer.launch({ headless: "new",args: ['--start-maximized'], defaultViewport: null  });
     const page = await browser.newPage();
     
     await page.goto(url, { waitUntil: 'load' });
