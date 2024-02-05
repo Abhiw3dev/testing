@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "dependencies": {
     "puppeteer": "^21.10.0"
   },
@@ -7,8 +6,21 @@
     "start": "node test/arbSearch.js",
     "test": "jest"
   },
-  "jest": {
-    "testEnvironment": "node"
+  "jest": 
+   
+    {
+      "testEnvironment": "node",
+      "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+      "reporters": [
+        "default",
+        ["jest-html-reporter", {
+          "pageTitle": "Test Report",
+          "outputPath": "newReport/test-report.html"
+        }]
+      ],
+      "collectCoverage": true,
+      "coverageReporters": ["json", "lcov", "text", "clover"]
+    
   },
   "transform": {
     "^.+\\.js$": "babel-jest"
@@ -17,6 +29,7 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-html-reporter": "^3.10.2"
   }
 }
