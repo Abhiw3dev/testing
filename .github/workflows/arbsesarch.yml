@@ -28,13 +28,13 @@ jobs:
         uses: actions/upload-artifact@v4.3.0
         if: always()
         with:
-          name: jest-test-reports
-          path: coverage  # Specify the path where Jest stores coverage reports
+          name: test-reports
+          path: coverage/Icov-report/index.html  # Specify the path where Jest stores coverage reports
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.0
         with:
-          name: new report
-          path: newReports
+          name: jest-html-reporter
+          path: newReport/test-report.html
           
       
