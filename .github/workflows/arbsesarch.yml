@@ -37,6 +37,13 @@ jobs:
           name: jest-html-reporter
           path: newReport/test-report.html
 
+      - name: Prepare Deployment Directory
+        run: |
+            mkdir deploy-directory # Create a new directory for deployment
+            cp -r coverage-reports deploy-directory/ # Copy coverage reports
+            cp -r newReport deploy-directory/ # Copy newReport directory containing test-report.html
+  
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
@@ -45,5 +52,11 @@ jobs:
             target-folder: coverage-reports # The folder in the gh-pages branch where reports are stored
             single-commit: true # Overwrites the previous commit to keep the repo size small
             clean: true # Automatically remove deleted files from the deployment
+
+      - name: Display Deployed Report Links
+        run: |
+          echo "Deployed Links for Report:"
+          echo "1. Coverage Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/coverage/lcov-report/index.html'"
+          echo "2. Test Report: 'https://abhiw3dev.github.io/arbworkflow/newReport/test-report.html'"
           
       
