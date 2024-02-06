@@ -8,6 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      TZ: 'Asia/Kolkata' # Set timezone to IST for the job
 
     steps:
       - name: Checkout code

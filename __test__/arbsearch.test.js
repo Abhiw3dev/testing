@@ -4,7 +4,7 @@ describe('Search Time Measurement', () => {
     it('measures search time for appreviewbot.com with "Slack"', async () => {
         const url = 'https://appreviewbot.com/';
         const searchTerm = 'slack';
-        const responseTime = await searchTime(urll, searchTerm);
+        const responseTime = await searchTime(url, searchTerm);
         
         console.log(`Response time for searching "${searchTerm}" on ${url}: ${responseTime} seconds`);
         // expect(responseTime).toBeLessThan(10); // Example threshold, adjust based on expected performance
@@ -14,7 +14,7 @@ describe('Search Time Measurement', () => {
         const url = 'https://next.appreviewbot.com/';
         const searchTerm = 'slack';
 
-        const responseTime = await searchTime( urll, searchTerm);
+        const responseTime = await searchTime( url, searchTerm);
         
         console.log(`Response time for searching "${searchTerm}" on ${url}: ${responseTime} seconds`);
         // expect(responseTime).toBeLessThan(10); // Example threshold, adjust based on expected performance
