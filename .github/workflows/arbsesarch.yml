@@ -40,7 +40,7 @@ jobs:
       - name: Prepare Deployment Directory
         run: |
             mkdir deploy-directory # Create a new directory for deployment
-            cp -r coverage-reports deploy-directory/ # Copy coverage reports
+            cp -r coverage deploy-directory/ # Copy coverage reports
             cp -r newReport deploy-directory/ # Copy newReport directory containing test-report.html
   
 
