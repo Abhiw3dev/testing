@@ -7,7 +7,7 @@ async function searchTime(url, searchTerm) {
 
     await page.goto(url, { waitUntil: 'load' });
     const NavigationUrl = page.url()
-    if (NavigationUrl.includes('https://aappreviewbot.com/')) {
+    if (NavigationUrl.includes('https://appreviewbot.com/')) {
 
         await page.click('input[placeholder="Type your app name to get started"]');
         await page.type('input[placeholder="Type your app name to get started"]', searchTerm, { delay: 100 });

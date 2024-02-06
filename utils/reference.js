@@ -1,3 +1,4 @@
+/*
 name: Automation Tests
 
 on:
@@ -62,4 +63,4 @@ jobs:
           echo "1. Coverage Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/coverage/lcov-report/index.html'"
           echo "2. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/newReport/test-report.html'"
           
-       
+ */
