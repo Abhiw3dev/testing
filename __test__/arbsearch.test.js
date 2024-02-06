@@ -3,7 +3,7 @@ const searchTime = require("../src/arbScript");
 describe('Search Time Measurement', () => {
     it('measures search time for appreviewbot.com with "Facebook"', async () => {
         const url = 'https://appreviewbot.com/';
-        const searchTerm = 'Facebook';
+        const searchTerm = 'slack';
         const responseTime = await searchTime(url, searchTerm);
         
         console.log(`Response time for searching "${searchTerm}" on ${url}: ${responseTime} seconds`);
@@ -12,7 +12,7 @@ describe('Search Time Measurement', () => {
 
     it('measures search time for next.appreviewbot.com with "Facebook"', async () => {
         const url = 'https://next.appreviewbot.com/';
-        const searchTerm = 'Facebook';
+        const searchTerm = 'slack';
 
         const responseTime = await searchTime( url, searchTerm);
         
