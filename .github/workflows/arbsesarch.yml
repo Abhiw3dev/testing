@@ -29,12 +29,21 @@ jobs:
         if: always()
         with:
           name: test-reports
-          path: coverage/Icov-report/index.html  # Specify the path where Jest stores coverage reports
+          path: coverage  # Specify the path where Jest stores coverage reports
 
       - name: Upload a jest test-report Artifact
         uses: actions/upload-artifact@v4.3.0
         with:
           name: jest-html-reporter
           path: newReport/test-report.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+            branch: gh-pages # The branch the action should deploy to.
+            folder: . # The folder the action should deploy.
+            target-folder: coverage-reports # The folder in the gh-pages branch where reports are stored
+            single-commit: true # Overwrites the previous commit to keep the repo size small
+            clean: true # Automatically remove deleted files from the deployment
           
       
