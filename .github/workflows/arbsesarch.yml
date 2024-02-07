@@ -45,7 +45,7 @@ jobs:
         if: always()
         with:
             name: test-logs
-            path: consoleLogs/example.html
+            path: consoleLogs
   
 
       - name: Prepare Deployment Directory
@@ -54,7 +54,7 @@ jobs:
             mkdir deploy-directory # Create a new directory for deployment
             cp -r coverage deploy-directory/ # Copy coverage reports
             cp -r newReport deploy-directory/ # Copy newReport directory containing test-report.html
-            cp -r consoleLogs/example.html deploy-directory/ # Copy example.html
+            cp -r consoleLogs deploy-directory/ # Copy example.html
 
       - name: Deploy to GitHub Pages
         if: always()
