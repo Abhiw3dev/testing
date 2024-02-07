@@ -40,13 +40,21 @@ jobs:
           name: jest-html-reporter
           path: newReport/test-report.html
 
+      - name: Upload Test Logs
+        uses: actions/upload-artifact@v4.3.0
+        if: always()
+        with:
+            name: test-logs
+            path: consoleLogs/test_logs.log
+  
+
       - name: Prepare Deployment Directory
         if: always()
         run: |
             mkdir deploy-directory # Create a new directory for deployment
             cp -r coverage deploy-directory/ # Copy coverage reports
             cp -r newReport deploy-directory/ # Copy newReport directory containing test-report.html
-  
+            cp consoleLogs/test_logs.log deploy-directory/ # Copy test_logs.log
 
       - name: Deploy to GitHub Pages
         if: always()

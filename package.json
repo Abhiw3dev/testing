@@ -1,26 +1,36 @@
 {
   "dependencies": {
+    "fs": "^0.0.1-security",
+    "moment-timezone": "^0.5.45",
     "puppeteer": "^21.10.0"
   },
   "scripts": {
     "start": "node test/arbSearch.js",
+    "arb": "node src/arbScript.js ",
     "test": "jest"
   },
-  "jest": 
-   
-    {
-      "testEnvironment": "node",
-      "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
-      "reporters": [
-        "default",
-        ["jest-html-reporter", {
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporter",
+        {
           "pageTitle": "Test Report",
           "outputPath": "newReport/test-report.html"
-        }]
-      ],
-      "collectCoverage": true,
-      "coverageReporters": ["json", "lcov", "text", "clover"]
-    
+        }
+      ]
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover"
+    ]
   },
   "transform": {
     "^.+\\.js$": "babel-jest"

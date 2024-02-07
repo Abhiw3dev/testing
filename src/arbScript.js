@@ -19,7 +19,7 @@ async function searchTime(url, searchTerm) {
 
         const responseTime = (endTime - startTime) / 1000; // Return response time in seconds
         console.log("Search time: ", responseTime, "at URL: ", url)
-
+        return responseTime;
         await browser.close();
 
 
@@ -34,13 +34,14 @@ async function searchTime(url, searchTerm) {
 
         const response_Time = (endTime - startTime) / 1000; // Return response time in seconds
         console.log("Search time: ", response_Time, "at URL: ", url)
-
+        return response_Time;
         await browser.close();
     } else {
         console.log('something went wrong')
     }
 
-
+await browser.close()
 }
+ 
 
 module.exports = searchTime;
