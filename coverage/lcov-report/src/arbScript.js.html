@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/28</span>
+                <span class='fraction'>24/25</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/28</span>
+                <span class='fraction'>24/25</span>
             </div>
         
             
@@ -102,16 +102,7 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -121,38 +112,31 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,48 +144,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const puppeteer = require('puppeteer');
 &nbsp;
 async function searchTime(url, searchTerm) {
-&nbsp;
     const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized'], defaultViewport: null });
     const page = await browser.newPage();
 &nbsp;
-    await page.goto(url, { waitUntil: 'load' });
-    const NavigationUrl = page.url()
-    if (NavigationUrl.includes('https://appreviewbot.com/')) {
+    try {
+        await page.goto(url, { waitUntil: 'load' });
+        const NavigationUrl = page.url();
+        let responseTime;
 &nbsp;
-        await page.click('input[placeholder="Type your app name to get started"]');
-        await page.type('input[placeholder="Type your app name to get started"]', searchTerm, { delay: 100 });
-        const startTime = new Date();
+        if (NavigationUrl.includes('https://appreviewbot.com/')) {
+            await page.click('input[placeholder="Type your app name to get started"]');
+            await page.type('input[placeholder="Type your app name to get started"]', searchTerm, { delay: 100 });
+            const startTime = new Date();
+            await page.waitForSelector('div[class="search__results"]');
+            const endTime = new Date();
+            responseTime = (endTime - startTime) / 1000;
+        } else if (NavigationUrl.includes('https://next.appreviewbot.com/')) {
+            await page.click('input[placeholder="Type your app name to get started"]');
+            await page.type('input[placeholder="Type your app name to get started"]', searchTerm, { delay: 100 });
+            const startTime = new Date();
+            await page.waitForSelector('div[class="absolute resultdropdown overflow-y-auto h-80 w-full top-16 bg-white border-[0.9px] border-solid border-[0.9px] border-opacity-[0.4] rounded-[4px] shadow-[0_5px_10px_rgba(0,0,0,0.1)] z-50"]');
+            const endTime = new Date();
+            responseTime = (endTime - startTime) / 1000;
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >            console.log('URL did not match expected patterns.');</span>
+        }
 &nbsp;
-        await page.waitForSelector('div[class="search__results"]');
-&nbsp;
-        const endTime = new Date();
-&nbsp;
-        const responseTime = (endTime - startTime) / 1000; // Return response time in seconds
-        console.log("Search time: ", responseTime, "at URL: ", url)
+        // Log and return response time outside of conditionals, after closing the browser
+        console.log("Search time: ", responseTime, "at URL: ", url);
         return responseTime;
-<span class="cstat-no" title="statement not covered" >        await browser.close();</span>
-&nbsp;
-&nbsp;
-    } else if (NavigationUrl.includes('https://next.appreviewbot.com/')) {
-        await page.click('input[placeholder="Type your app name to get started"]');
-        await page.type('input[placeholder="Type your app name to get started"]', searchTerm, { delay: 100 });
-        const startTime = new Date();
-&nbsp;
-        await page.waitForSelector('div[class="absolute resultdropdown overflow-y-auto h-80 w-full top-16 bg-white border-[0.9px] border-solid border-[0.9px] border-opacity-[0.4] rounded-[4px] shadow-[0_5px_10px_rgba(0,0,0,0.1)] z-50"]');
-&nbsp;
-        const endTime = new Date();
-&nbsp;
-        const response_Time = (endTime - startTime) / 1000; // Return response time in seconds
-        console.log("Search time: ", response_Time, "at URL: ", url)
-        return response_Time;
-<span class="cstat-no" title="statement not covered" >        await browser.close();</span>
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
-<span class="cstat-no" title="statement not covered" >        console.log('something went wrong')</span>
+    } finally {
+        // Ensure the browser is always closed, even if an error occurs
+        await browser.close();
     }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >await browser.close()</span>
 }
- 
 &nbsp;
 module.exports = searchTime;
 &nbsp;</pre></td></tr></table></pre>
@@ -211,7 +187,7 @@ module.exports = searchTime;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-07T12:07:52.762Z
+                at 2024-02-07T12:34:12.698Z
             </div>
         <script src="../prettify.js"></script>
         <script>
