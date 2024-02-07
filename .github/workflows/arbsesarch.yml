@@ -45,7 +45,7 @@ jobs:
         if: always()
         with:
             name: test-logs
-            path: consoleLogs/test_logs.log
+            path: consoleLogs/example.html
   
 
       - name: Prepare Deployment Directory
@@ -54,7 +54,7 @@ jobs:
             mkdir deploy-directory # Create a new directory for deployment
             cp -r coverage deploy-directory/ # Copy coverage reports
             cp -r newReport deploy-directory/ # Copy newReport directory containing test-report.html
-            cp consoleLogs/test_logs.log deploy-directory/ # Copy test_logs.log
+            cp -r consoleLogs/example.html deploy-directory/ # Copy example.html
 
       - name: Deploy to GitHub Pages
         if: always()
@@ -71,6 +71,6 @@ jobs:
           echo "Deployed Links for Report:"
           echo "1. Coverage Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/coverage/lcov-report/index.html'"
           echo "2. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/newReport/test-report.html'"
-          echo "3. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/consoleLogs/test_logs.log'"
+          echo "3. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/consoleLogs/example.html'"
           
        

@@ -84,6 +84,9 @@
 
 
 const searchTime = require("../src/arbScript");
+const fs = require('fs');
+const path = require('path');
+const moment = require('moment-timezone');
 const captureConsoleLogs = require("../utils/captureLogs")
 
 global.browser; // Declare a global browser instance
@@ -116,5 +119,60 @@ describe('Search Time Measurement', () => {
 // Stop global log capture once after all tests have finished
 afterAll(() => {
     global.logCapture.stopCapture();
+
+    // Path to the log file and the output HTML file
+const logFilePaths = path.join(__dirname, 'consoleLogs', 'test_logs.log');
+const htmlFilePath = path.join(__dirname, 'consoleLogs', 'test_logs.html');
+
+// Function to escape HTML special characters for safe display
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Read the log file
+fs.readFile(logFilePaths, 'utf8', (err, data) => {
+    if (err) {
+        console.error('Error reading the log file:', err);
+        return;
+    }
+
+    // Split the log data into lines
+    const lines = data.split('\n');
+
+    // Start the HTML string with a basic HTML5 document structure
+    let htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Logs</title>
+</head>
+<body>
+    <h1>Test Logs</h1>
+`;
+
+    // Convert each log line into an HTML paragraph and add to the HTML content
+    lines.forEach(line => {
+        if (line) { // Skip empty lines
+            htmlContent += `    <p>${escapeHtml(line)}</p>\n`;
+        }
+    });
+
+    // Close the HTML document
+    htmlContent += `</body>\n</html>`;
+
+    // Write the HTML content to the output file
+    fs.writeFile(htmlFilePath, htmlContent, 'utf8', err => {
+         
+        console.log('HTML file has been generated:', htmlFilePath);
+    });
+});
+
 
 });
