@@ -71,5 +71,6 @@ jobs:
           echo "Deployed Links for Report:"
           echo "1. Coverage Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/coverage/lcov-report/index.html'"
           echo "2. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/newReport/test-report.html'"
+          echo "3. Test Report: 'https://abhiw3dev.github.io/arbworkflow/coverage-reports/deploy-directory/consoleLogs/test_logs.log'"
           
        
