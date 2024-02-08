@@ -13,7 +13,8 @@ fs.readFile(inputFile, 'utf8', (err, data) => {
     }
 
     // Create the HTML content
-    const htmlContent = `<!DOCTYPE html>
+    const htmlContent = 
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
