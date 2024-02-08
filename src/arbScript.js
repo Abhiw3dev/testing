@@ -1,3 +1,4 @@
+
 const puppeteer = require('puppeteer');
 
 async function searchTime(url, searchTerm) {
@@ -5,7 +6,7 @@ async function searchTime(url, searchTerm) {
     const page = await browser.newPage();
 
     try {
-        await page.goto(url, { waitUntil: 'load' });
+        await page.goto(url,{ waitUntil: 'networkidle0', timeout: 80000 });
         const NavigationUrl = page.url();
         let responseTime;
 
@@ -37,3 +38,5 @@ async function searchTime(url, searchTerm) {
 }
 
 module.exports = searchTime;
+
+
