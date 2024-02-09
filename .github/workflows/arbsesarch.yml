@@ -14,10 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.ARB_TOKEN }}
 
-     
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -63,6 +60,7 @@ jobs:
         if: always()
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
+            token: ${{ secrets.ARB_TOKEN }}
             branch: gitActions # The branch the action should deploy to.
             folder: . # The folder the action should deploy.
             target-folder: coverage-report # The folder in the gh-pages branch where reports are stored
