@@ -14,12 +14,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Some Action
-        uses: some-action/some-repo@v1
         with:
           token: ${{ secrets.ARB_TOKEN }}
 
+     
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
