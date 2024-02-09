@@ -34,6 +34,7 @@ async function searchTime(url, searchTerm) {
     } finally {
         // Ensure the browser is always closed, even if an error occurs
         await browser.close();
+        console.log('window closed')
     }
 }
 
